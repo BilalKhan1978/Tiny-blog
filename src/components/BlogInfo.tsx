@@ -15,35 +15,11 @@ const BlogInfo = () => {
   // Onchange event
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
   const value = event.target.value;
-    
-    if(value==="history")
-    {
-        selectedblogchange(blogdata.filter(x=>x.tags.find(x=>x==="history")))
-        setshowcard(true);
-    }
-    else if (value==="fiction")
-    {
-        selectedblogchange(blogdata.filter(x=>x.tags.find(x=>x==="fiction")))
-        setshowcard(true);
-    }
-    else if (value==="love")
-    {
-        selectedblogchange(blogdata.filter(x=>x.tags.find(x=>x==="love")))
-        setshowcard(true);
-    }
-    else if (value==="crime")
-    {
-        selectedblogchange(blogdata.filter(x=>x.tags.find(x=>x==="crime")))
-        setshowcard(true);
-    }
-    else if (value==="english")
-    {
-        selectedblogchange(blogdata.filter(x=>x.tags.find(x=>x==="english")))
-        setshowcard(true);
-    }
+  
+  selectedblogchange(blogdata.filter(x=>x.tags.find(x=>x===value)))
+  setshowcard(true);
   };
-
-
+  
 useEffect(() => {
     fetch('https://dummyjson.com/posts')    
     .then(response => response.json())
